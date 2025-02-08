@@ -2,11 +2,22 @@ package com.example.rest.webservices.restful_web_servies_socialmedia.user;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
 
 public class User {
 	
 	private Integer id;
+	
+	@Size(min=2)
+	@JsonProperty("User Name")
 	private String name;
+	
+	@Past
+	@JsonProperty("Birth Date")
 	private LocalDate birthDate;
 	
 	public User(Integer id, String name, LocalDate birthDate) {
